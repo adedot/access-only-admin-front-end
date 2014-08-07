@@ -16,5 +16,8 @@
     "NightLife"
   ],
   "author": "Access-Only",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.8.2"
+  }
 }
