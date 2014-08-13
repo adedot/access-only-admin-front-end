@@ -390,6 +390,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>Total</th>
                                 </tr>
                                 <tr ng-repeat="order in orders">
                                 <td> {{order.name}} </td>
@@ -397,6 +398,7 @@
                                 <td> {{order.contact_email}} </td>
 
                                 <td> {{order.contact_phone}} </td>
+                                <td> ${{order.total}} </td>
                                 </tr>
                                 </table>
                             </div>
