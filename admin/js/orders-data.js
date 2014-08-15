@@ -1,10 +1,15 @@
-// table data
+
+
 var orderApp = angular.module('orderApp', []);
+
+var config = {
+	"uri": "access-only-back-end.herokuapp.com/"
+}
 
 orderApp.controller('OrderCtrl', function ($scope, $http) {
 
 		// Get the orders
-	  $scope.orders = $http.get("http://localhost:5000/orders")
+	  $scope.orders = $http.get("http://" + config.uri  +"orders")
 	  	.success(function(data){
 
 		$scope.orders = data;
@@ -27,7 +32,7 @@ orderApp.controller('VenuesOrderCtrl', function($scope, $http){
 	else{
 
 		// Get Orders at the Venue
-		$scope.orders = $http.get("http://localhost:5000/venues/"+venueId+ "/orders")
+		$scope.orders = $http.get("http://" + config.uri +"venues/"+venueId+ "/orders")
 			.success(function(data){
 
 			$scope.orders = data;
@@ -36,6 +41,17 @@ orderApp.controller('VenuesOrderCtrl', function($scope, $http){
 
 	 }
 
+	$scope.checkConfirmation = function(){
+
+		// for each check box
+
+		// if true
+
+		// add check
+
+		var x = document.getElementById("myCheck").checked;
+
+	}
 
 });
 
@@ -43,9 +59,9 @@ orderApp.controller('VenuesCtrl', function($scope, $http){
 
 
 	// Get Venues 
-	$scope.venues = $http.get("http://localhost:5000/venues").success(function(data) {
+	$scope.venues = $http.get("http://" + config.uri+ "venues").success(function(data) {
       	$scope.venues = data;
-      console.log(scope.venues);
+      console.log($scope.venues);
     });
 
         // On click set the amount
@@ -56,3 +72,4 @@ orderApp.controller('VenuesCtrl', function($scope, $http){
 
 
 });
+
