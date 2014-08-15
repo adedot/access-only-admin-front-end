@@ -18,8 +18,7 @@
   "author": "Access-Only",
   "license": "ISC",
   "dependencies": {
-    "express": "~4.8.2",
-    "grunt-template": "~0.2.3"
+    "express": "~4.8.2"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
