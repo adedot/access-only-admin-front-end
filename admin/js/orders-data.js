@@ -41,6 +41,18 @@ orderApp.controller('VenuesOrderCtrl', function($scope, $http){
 
 	 }
 
+	$scope.clickProducts = function(order){
+
+		// Get Orders at the Venue
+		$scope.products = $http.get("http://" + config.uri +"orders/"+order.transactionId+ "/products")
+			.success(function(data){
+
+			$scope.products = data;
+
+		});
+
+	}
+
 	$scope.checkConfirmation = function(){
 
 		// for each check box

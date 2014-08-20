@@ -4,5 +4,5 @@ var app = express();
  
 app.use(express.static(__dirname + '/admin'));
 app.get('/', function(request, response) {
-    response.sendFile(__dirname + '/admin/tables.html');
+    response.sendFile(__dirname + '/admin/orders.html');
 }).listen(port);
