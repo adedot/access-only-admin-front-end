@@ -36,21 +36,14 @@ orderApp.controller('VenuesOrderCtrl', function($scope, $http){
 			.success(function(data){
 
 			$scope.orders = data;
-
 		});
 
 	 }
 
 	$scope.clickProducts = function(order){
-
-		// Get Orders at the Venue
-		$scope.products = $http.get("http://" + config.uri +"orders/"+order.transactionId+ "/products")
-			.success(function(data){
-
-			$scope.products = data;
-
-		});
-
+		// set transactionId in session
+		sessionStorage.person_name = order.contact_name;
+		sessionStorage.transactionId = order.transactionId;
 	}
 
 	$scope.checkConfirmation = function(){
@@ -69,19 +62,32 @@ orderApp.controller('VenuesOrderCtrl', function($scope, $http){
 
 orderApp.controller('VenuesCtrl', function($scope, $http){
 
-
 	// Get Venues 
 	$scope.venues = $http.get("http://" + config.uri+ "venues").success(function(data) {
-      	$scope.venues = data;
-      console.log($scope.venues);
-    });
+	  	$scope.venues = data;
+	  console.log($scope.venues);
+	});
+     
+    // On click set the amount
+	$scope.submit = function(venue) {
+		sessionStorage.venueId = venue.id;
+		sessionStorage.venueName = venue.name;
+	};
 
-        // On click set the amount
-  $scope.submit = function(venue) {
-  	sessionStorage.venueId = venue.id;
-    sessionStorage.venueName = venue.name;
-  };
 
+});
+
+orderApp.controller('ProductsOrderCtrl', function($scope, $http){
+
+	$scope.person_name = sessionStorage.person_name
+
+	// Get Products for orders
+	$scope.products = $http.get("http://" + config.uri +"orders/"+sessionStorage.transactionId+ "/products")
+		.success(function(data){
+
+		$scope.products = data;
+
+	});
 
 });
 
