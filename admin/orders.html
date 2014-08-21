@@ -96,6 +96,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <tr>
                                 <th>Confirmed</th>
+                                <th>Status</th>
                                 <th>Venue</th>
                                 <th>Name</th>
                                 <th>Email</th>
@@ -106,6 +107,7 @@
                                 <!-- Need if statement -->
                                 <tr ng-repeat="order in orders">
                                 <td><input type="checkbox" id="" name="{{order.name}}" value="Submit"></td>
+                                <td> {{order.status}}
                                 <td> {{order.name}} </td>
                                 <td> {{order.contact_name}} </td>
                                 <td> {{order.contact_email}} </td>
